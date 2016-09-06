@@ -37,6 +37,10 @@ class Order(models.Model):
     def total(self):
         return sum(line.total for line in self.items.all())
 
+    def assign_to(self, user):
+        self.actions.create(action=ActionType.assigned,
+                            user=user)
+
 
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, related_name='orders')
