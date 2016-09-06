@@ -1,5 +1,6 @@
 from enum import Enum
 
+from django.conf import settings
 from django.db import models
 from enumfields import EnumField
 
@@ -57,6 +58,10 @@ class ActionType(Enum):
 
 
 class OrderAction(models.Model):
-    order = models.ForeignKey(Order)
+    order = models.ForeignKey(Order, related_name='actions')
     action = EnumField(ActionType, max_length=1)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return "{0}, user {1}".format(self.action.name, self.user)
