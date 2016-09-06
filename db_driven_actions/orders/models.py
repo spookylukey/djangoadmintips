@@ -32,6 +32,10 @@ class Order(models.Model):
     class Meta:
         ordering = ['timestamp']
 
+    @property
+    def total(self):
+        return sum(line.total for line in self.items.all())
+
 
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, related_name='orders')
@@ -40,6 +44,10 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return "{0} x {1}".format(self.product, self.quantity)
+
+    @property
+    def total(self):
+        return self.quantity * self.product.price
 
 
 class ActionType(Enum):

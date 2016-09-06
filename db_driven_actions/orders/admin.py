@@ -10,7 +10,7 @@ class OrderItemInline(admin.TabularInline):
 class OrderAdmin(admin.ModelAdmin):
     inlines = [OrderItemInline]
     model = Order
-    list_display = ['id', 'customer', 'timestamp']
+    list_display = ['id', 'customer', 'total', 'timestamp']
 
 
 admin.site.register(Customer)
