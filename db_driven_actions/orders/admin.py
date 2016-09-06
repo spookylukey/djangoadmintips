@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
+from django.contrib import messages
 
 from .models import Customer, Order, OrderItem, Product
 
@@ -13,6 +14,8 @@ def make_assign_to_user_action(user):
     def assign_to_user(modeladmin, request, queryset):
         for order in queryset:
             order.assign_to(user)
+            messages.info(request, "Order {0} assigned to {1}".format(order.id,
+                                                                      user.first_name))
 
     assign_to_user.short_description = "Assign to {0}".format(user.first_name)
     # We need a different '__name__' for each action - Django
