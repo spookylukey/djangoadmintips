@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+# Script I use to create new demo apps
 NAME=$1
 
 VENV=~/.virtualenvs/djangoadmintips_$NAME
