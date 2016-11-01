@@ -16,4 +16,5 @@ cd $NAME
 ./manage.py shell -c "from django.contrib.auth.models import *; u = User.objects.get(); u.set_password('adminadmin'); u.save()" || exit 1
 
 cp ~/devel/.template-python.dir-locals.el .dir-locals.el
+echo "Virtualenv: $VENV"
 echo "Remember to edit .dir-locals"
