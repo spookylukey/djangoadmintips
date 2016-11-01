@@ -9,9 +9,9 @@ from .models import Location
 
 @admin.register(Location)
 class LocationAdmin(admin.ModelAdmin):
-    list_display = ('owner', 'postcode')
-    fields = ('owner', 'postcode', 'tenants')
-    filter_horizontal = ('tenants',)
+    list_display = ['owner', 'postcode']
+    fields = ['owner', 'postcode', 'tenants']
+    filter_horizontal = ['tenants']
 
     def get_queryset(self, request):
         qs = super(LocationAdmin, self).get_queryset(request)
