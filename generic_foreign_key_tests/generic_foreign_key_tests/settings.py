@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'gfks',
     'alternative1',
     'alternative2',
+    'alternative3',
 
 ]
 
