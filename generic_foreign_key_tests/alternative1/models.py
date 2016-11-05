@@ -21,9 +21,9 @@ class Group(models.Model):
 class Task(models.Model):
     description = models.CharField(max_length=200)
 
-    owner_group = models.ForeignKey(Group, null=True,
+    owner_group = models.ForeignKey(Group, null=True, blank=True,
                                     on_delete=models.CASCADE)
-    owner_person = models.ForeignKey(Person, null=True,
+    owner_person = models.ForeignKey(Person, null=True, blank=True,
                                      on_delete=models.CASCADE)
 
     @property
