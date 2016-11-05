@@ -7,8 +7,8 @@ class TaskAdmin(admin.ModelAdmin):
     def get_queryset(self, request):
         qs = super(TaskAdmin, self).get_queryset(request)
         qs = qs.select_related('owner_group',
-                               'owner_person')
-        qs = qs.prefetch_related('owner_group__creator')
+                               'owner_person',
+                               'owner_group__creator')
         return qs
 
 
