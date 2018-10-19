@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'alternative2',
     'alternative3',
     'alternative4',
+    'alternative5',
 
 ]
 
