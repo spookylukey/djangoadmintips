@@ -26,7 +26,7 @@ class Person(Owner):
 
 class Group(Owner):
     name = models.CharField(max_length=200)
-    creator = models.ForeignKey(Person, related_name='groups')
+    creator = models.ForeignKey(Person, related_name='groups', on_delete=models.PROTECT)
 
     def __str__(self):
         return "{0}, created by {1}".format(self.name, self.creator)
