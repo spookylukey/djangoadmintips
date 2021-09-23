@@ -1,5 +1,5 @@
 decorator==4.0.10
-Django==1.11.29
+Django==2.2.24
 django-enumfields==0.8.2
 enum34==1.1.6
 ipython==5.1.0
